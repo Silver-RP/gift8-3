@@ -13,6 +13,67 @@ body {
     align-items: center;
 }
 
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(11, 194, 155);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    font-size: 24px;
+    z-index: 9999;
+}
+
+#startButton {
+    padding: 10px 20px;
+    background: #ff4081;
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+#overlay {
+    background: linear-gradient(to bottom, #eb435f, #6ac2d6);
+    overflow: hidden;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-100px) scale(0.5); opacity: 1; }
+    100% { transform: translateY(100vh) scale(1); opacity: 0; }
+}
+
+.heart {
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    opacity: 0;
+    animation: fall 3s linear infinite;
+}
+
+.heart:nth-child(2) { left: 20%; animation-duration: 4s; }
+.heart:nth-child(3) { left: 40%; animation-duration: 5s; }
+.heart:nth-child(4) { left: 60%; animation-duration: 6s; }
+.heart:nth-child(5) { left: 80%; animation-duration: 3s; }
+
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(3deg); }
+    50% { transform: rotate(-3deg); }
+    75% { transform: rotate(3deg); }
+}
+
+#startButton {
+    animation: wiggle 1s infinite;
+}
+
+
 /* Twinkling Stars Background */
 .stars {
     position: fixed;
@@ -519,3 +580,13 @@ button:last-child:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
+
+/* #playerContainer {
+    width: 640px;
+    height: 360px;
+    margin: 20px auto;
+  } */
+
+#playerContainer {
+   display: none;
+  }

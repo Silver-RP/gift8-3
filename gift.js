@@ -11,6 +11,38 @@ window.onload = () => {
     originalY = rect.top;
 };
 
+document.addEventListener("click", function () {
+    const youtubePlayer = document.getElementById("youtubePlayer");
+    youtubePlayer.src = youtubePlayer.src + "&mute=0"; 
+});
+
+document.getElementById("startButton").addEventListener("click", function () {
+    const overlay = document.getElementById("overlay");
+    overlay.style.opacity = "0"; 
+
+    setTimeout(() => {
+        overlay.style.display = "none"; 
+    }, 500);
+});
+
+function createHearts() {
+    for (let i = 0; i < 10; i++) {
+        let heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.getElementById("overlay").appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }
+}
+setInterval(createHearts, 500);
+
+
+
 noBtn.addEventListener("mouseover", () => {
     clearTimeout(moveTimeout);
 
@@ -256,3 +288,47 @@ window.onload = function () {
         });
     }, 1000);
 };
+
+var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('playerContainer', {
+        videoId: 'IOe0tNoUGv8',
+        width: 640,
+        height: 360,
+        playerVars: {
+          'autoplay': 1,
+          'mute': 1,  
+          'loop': 1,
+          'playlist': 'IOe0tNoUGv8', 
+          'start': 89,
+          'controls': 1
+        },
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    function onPlayerReady(event) {
+      event.target.playVideo();
+      
+      document.addEventListener('click', function() {
+        if (player && player.isMuted()) {
+          player.unMute();
+          player.setVolume(50);
+        }
+      }, {once: true});
+    }
+
+    function onPlayerStateChange(event) {
+      if (event.data == YT.PlayerState.ENDED) {
+        player.seekTo(89);
+        player.playVideo();
+      }
+    }
