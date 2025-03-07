@@ -41,24 +41,19 @@ giftContainer.style.display = "none";
 giftBox.style.pointerEvents = "none";
 
 yesBtn.addEventListener("click", () => {
-    popup.style.display = "block"; // Hiện popup
+    popup.style.display = "block";
     setTimeout(() => {
-        giftContainer.style.display = "block"; // Hiện hộp quà sau khi popup xuất hiện
-        giftBox.style.pointerEvents = "auto"; // Cho phép click vào hộp quà
-    }, 500); // Hiện hộp quà sau nửa giây
+        giftContainer.style.display = "block"; 
+        giftBox.style.pointerEvents = "auto"; 
+    }, 500);
 });
 
 closePopup.addEventListener("click", () => {
-    popup.style.display = "none"; // Đóng popup
-});
-
-closePopup.addEventListener("click", () => {
-    popup.style.display = "none"; // Đóng popup
+    popup.style.display = "none"; 
 });
 
 
 
-// Create stars background
 function createStars() {
     const starsContainer = document.getElementById('stars');
     const starCount = 150;
@@ -67,25 +62,21 @@ function createStars() {
         const star = document.createElement('div');
         star.classList.add('star');
 
-        // Random size between 1px and 3px
         const size = Math.random() * 2 + 1;
         star.style.width = size + 'px';
         star.style.height = size + 'px';
 
-        // Random position
         star.style.left = Math.random() * 100 + 'vw';
         star.style.top = Math.random() * 100 + 'vh';
 
-        // Random animation delay
         star.style.animationDelay = Math.random() * 5 + 's';
 
         starsContainer.appendChild(star);
     }
 }
 
-// Create falling petals
 function createFallingPetals() {
-    const petalCount = 10; // Số lượng cánh hoa
+    const petalCount = 10; 
 
     for (let i = 0; i < petalCount; i++) {
         const petal = document.createElement('div');
@@ -96,24 +87,20 @@ function createFallingPetals() {
         petal.style.width = size + 'px';
         petal.style.height = size + 'px';
 
-        // Xuất hiện từ đầu màn hình
         petal.style.left = Math.random() * 100 + 'vw';
-        petal.style.top = '-10vh'; // Xuất hiện từ trên cùng màn hình
+        petal.style.top = '-10vh'; 
 
-        // Ngẫu nhiên thời gian rơi và delay
         petal.style.animationDuration = (Math.random() * 5 + 5) + 's';
         petal.style.animationDelay = Math.random() * 3 + 's';
 
         document.body.appendChild(petal);
 
-        // Xóa cánh hoa sau khi rơi hết
         setTimeout(() => {
             petal.remove();
         }, 20000);
     }
 }
 
-// Open gift function
 function openGift() {
     const main = document.querySelector('.main');
     const giftBox = document.getElementById('giftBox');
@@ -129,7 +116,6 @@ function openGift() {
     // Play sound
     giftOpenSound.play();
 
-    // Animate gift opening
     giftLid.style.transformOrigin = 'bottom';
     giftLid.style.animation = 'openLid 1s forwards';
 
@@ -142,20 +128,16 @@ function openGift() {
             giftBox.style.display = 'none';
             messageContainer.style.display = 'block';
 
-            // Animate heart
             heartIcon.style.animation = 'heartFloat 2s forwards';
 
             setTimeout(() => {
-                // Fade in recipient image
                 recipientImage.style.animation = 'fadeUp 1.5s forwards';
 
                 setTimeout(() => {
-                    // Animate message text typing
                     const children = messageText.children;
                     for (let i = 0; i < children.length; i++) {
                         const element = children[i];
                         element.style.opacity = '1';
-                        // Create typewriter effect
                         const text = element.textContent;
                         element.textContent = '';
                         let index = 0;
@@ -166,7 +148,6 @@ function openGift() {
                                 index++;
                                 setTimeout(typeWriter, 50);
                             } else if (i === children.length - 1) {
-                                // Start blooming flowers after text animation
                                 setTimeout(bloomFlowers, 500);
                             }
                         }
@@ -195,11 +176,11 @@ function bloomFlowers() {
     flowerBloomSound.play();
 
     let flowerCount = 0;
-    const maxFlowers = 300; // Khi đạt số này, hiện message
+    const maxFlowers = 300; 
 
     function createFlower() {
         if (flowerCount >= maxFlowers) {
-            showSpecialMessage(); // Khi đủ hoa, hiển thị message
+            showSpecialMessage();
             return;
         }
 
@@ -258,19 +239,15 @@ function toggleMusic() {
     }
 }
 
-// Restart animation function
 function restartAnimation() {
-    // Reload the page
     location.reload();
 }
 
-// Initialize the scene
 window.onload = function () {
     createStars();
     createFallingPetals();
     setInterval(createFallingPetals, 3000);
 
-    // Auto play background music
     setTimeout(() => {
         const backgroundMusic = document.getElementById('backgroundMusic');
         backgroundMusic.volume = 0.3;
