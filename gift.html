@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Women's Day</title>
+
+    <link rel="stylesheet" href="gift.css">
+  
+</head>
+
+<body>
+    <!-- Stars Background -->
+    <div class="stars" id="stars"></div>
+    <iframe id="youtubePlayer" width="0" height="0"
+    src="https://www.youtube.com/embed/IOe0tNoUGv8?autoplay=1&loop=1&playlist=IOe0tNoUGv8&start=89" frameborder="0"
+    allow="autoplay"></iframe>
+
+    <div class="main">
+        <div class="gift-section">
+            <h2 class="typing">🎁 Quà 8/3 tặng vợ iu 🎁</h2>
+            <div class="heart-container">❤️🩷❤️🧡❤️💛❤️💚❤️🩵❤️💙❤️💜❤️🖤❤️🩶❤️🤍❤️🤎</div>
+        </div>
+
+        <br><br><br>
+
+        <!-- Gift Box -->
+        <div class="gift-container" id="giftContainer" style="display: none;">
+            <div class="gift-box" id="giftBox" onclick="openGift()">
+                <div class="gift-lid" id="giftLid"></div>
+                <div class="gift-box-body">
+                    <div class="gift-ribbon"></div>
+                    <div class="gift-ribbon-vertical"></div>
+                    <div class="gift-ribbon-circle"></div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="yes-no-container">
+            <h3>Có yêu anh không? ❤️</h3>
+            <div class="button-group">
+                <button id="yes-btn">Có</button>
+                <button id="no-btn">Không</button>
+            </div>
+        </div>
+        <div id="custom-popup" class="popup">
+            <div class="popup-content">
+                <p>Biết ngay mà! 💖😍</p>
+                <p>Bây giờ hãy mở quà đi nào!!! 🎁</p>
+                <button id="close-popup">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Heart Animation -->
+    <div class="heart-icon" id="heartIcon">❤️</div>
+  
+
+
+    <!-- Message Container -->
+    <div class="message-container" id="messageContainer">
+        <img src="https://scontent.fsgn2-10.fna.fbcdn.net/v/t39.30808-6/434760785_3741431069461710_8515879708439124575_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=fj6V-94v2UkQ7kNvgFG0o1H&_nc_oc=AdhvgzAR5j02ZWDPsEg3u43-G7TI-LdYrjaLLhcWyX-0Q0Yd8K8d_4S2pnId-wOzdxU&_nc_zt=23&_nc_ht=scontent.fsgn2-10.fna&_nc_gid=AyrVZWA4c1mziTRgfqVFaKB&oh=00_AYGyJAZCmBFscaGsFmt4eWFMFOWW2gWdEPRkq9kVIqLRjw&oe=67D0653B"
+            alt="Recipient" class="recipient-image" id="recipientImage">
+        <div class="message-text" id="messageText">
+            <h1></h1>
+            <p></p>
+        </div>
+        <div class="special-message" id="specialMessage">
+            <h1>Chúc vợ 8/3 vui vẻ, hạnh phúc nhá!</h1>
+            <span class="typing">Wishing you love, joy, and happiness always! ❤️</span><br>
+            <span class="typing">
+                Cảm ơn em vì đã luôn tuyệt vời như vậy! Chúc em một ngày 8/3 tràn đầy yêu thương!
+            </span>
+        </div>
+        <button class="restart-button" id="restartButton" onclick="restartAnimation()">Gửi lại quà</button>
+    </div>
+
+    <!-- Music Control -->
+    <div class="music-control" id="musicControl" onclick="toggleMusic()">
+        <div class="music-icon">♪</div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="backgroundMusic" loop>
+        <source src="https://cdn.freesound.org/previews/414/414030_5121236-lq.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="giftOpenSound">
+        <source src="https://cdn.freesound.org/previews/411/411089_5121236-lq.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="flowerBloomSound">
+        <source src="https://cdn.freesound.org/previews/320/320181_5123851-lq.mp3" type="audio/mpeg">
+    </audio>
+
+
+
+    <script src="gift.js"></script>
+</body>
+
+</html>
